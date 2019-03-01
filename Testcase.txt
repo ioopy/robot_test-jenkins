@@ -1,0 +1,26 @@
+*** Variables ***
+
+${HOSTNAME}             127.0.0.1
+${PORT}                 8080
+${SERVER}               http://${HOSTNAME}:${PORT}/
+${BROWSER}              chrome
+
+
+*** Settings ***
+Library    Selenium2Library
+Library    OperatingSystem
+
+
+*** Keywords ***
+Open browser in google chrome
+       Open Browser    ${SERVER}    ${BROWSER}
+       Sleep	5
+       Maximize Browser Window
+
+
+
+*** Test case***
+
+Test Setup
+  Open Browser  ${SERVER}  ${BROWSER}
+  Set Window Size  1024  768
